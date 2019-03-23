@@ -9,6 +9,8 @@ Here are the features of the tool:
 * HL7 Scanner
 * DOS Testing
 * Traffic Analysis 
+
+<img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/TrafficAnalysis.PNG"></img>
 * Fuzzer (in progress)
 * API support for sending HL7 Message 
 
