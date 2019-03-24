@@ -11,6 +11,7 @@ Here are the features of the tool:
 * HL7 Scanner
 * DOS Testing
 * Traffic Analysis 
+* API Support for using Proxies (Burp, ZAP) and REST client (e.g. Postman)
 
 To understand Pen testing medical devices, these talks will help -
 <a href="https://www.youtube.com/watch?v=MR7cH44fjrc"> Blackhat Talk</a>
