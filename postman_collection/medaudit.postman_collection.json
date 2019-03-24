@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "ad1e797e-191e-4dc8-8848-00e3703cec8b",
+		"name": "medaudit",
+		"description": "Medaudit is a medical device auditing tool. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hl7",
+			"item": [
+				{
+					"name": "sendMessage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"timeout\":0,\n\t\"message\":\"MSH\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/hl7/sendMessage",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hl7",
+								"sendMessage"
+							]
+						},
+						"description": "send an HL7 message"
+					},
+					"response": []
+				},
+				{
+					"name": "scanHost",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"timeout\":1,\n\t\"message\":\"\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/hl7/hostScan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hl7",
+								"hostScan"
+							]
+						},
+						"description": "start a host scan"
+					},
+					"response": []
+				},
+				{
+					"name": "DOS Test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"8806\",\n\t\"start\":0\n\t\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/hl7dos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hl7dos"
+							]
+						},
+						"description": "Test the port for logical DOS attack"
+					},
+					"response": []
+				}
+			],
+			"description": "A collection for HL7 requests"
+		}
+	]
+}
