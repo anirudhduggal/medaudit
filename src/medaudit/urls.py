@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from hl7.views import sendMessage_view, scanHl7Ports_view,analyzeTraffic_view, exhaustHl7Ports_view, about_view, fuzzer_view
+from hl7.views import sendMessage_view, scanHl7Ports_view,analyzeTraffic_view, exhaustHl7Ports_view, about_view, fuzzer_view, maliciousServer_view
 from api.views import test_view, api_hl7_sendMessage_view, api_hl7_hostScan_view, api_hl7_dosTest_view, api_hl7_maliciousServer_view
 
 urlpatterns = [
@@ -24,6 +24,7 @@ urlpatterns = [
     path('hl7/analyzeTraffic', analyzeTraffic_view, name='Analyze Network Traffic'),
     path('hl7/exhaustHl7Ports', exhaustHl7Ports_view, name='DOS Attack'),
     path('hl7/fuzzer', fuzzer_view, name='Fuzz HL7 Protocol'),
+    path('hl7/maliciousServerTest', maliciousServer_view, name='Fuzz HL7 Protocol'),
     path('about/', about_view, name='About this project'),
     path('admin/', admin.site.urls),
 

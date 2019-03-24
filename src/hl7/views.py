@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_networkAnalyzer, hl7_exhaust
+from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_networkAnalyzer, hl7_exhaust, hl7_maliciousServer
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
@@ -109,7 +109,7 @@ def fuzzer_view(request):
         port = request.POST.get("port_txt")
 
         message = request.POST.get("message_send_txt")
-        consoleOuputFileName = "hl7_messageSender.log"
+        consoleOuputFileName = "hl7/networkFiles/hl7_messageSender.log"
         print("Input Received:")
         print(str(ipAddress))
         print(str(port))
@@ -125,9 +125,28 @@ def fuzzer_view(request):
     else:
         return render(request, "fuzzer.html", context={'text': 'Ready to test!'})
 
-from django.shortcuts import redirect
+@csrf_exempt
+def maliciousServer_view(request):
+    if request.method == 'POST':
+        port = request.POST.get("port_txt")
+        message = request.POST.get("message_send_txt")
+        start = request.POST.get("start_txt")
+        consoleOuputFileName = "hl7/networkFiles/hl7_messageSender.log"
 
-def view_404(request):
-    # make a redirect to homepage
-    # you can use the name of url or just the plain link
-    return redirect('/about') # or redirect('name-of-index-url')
+        print("Input Received:")
+        print(str(port))
+        print(str(message))
+        print(str(start))
+
+        # create a thread for running a DOS attack
+
+        threadObject = Process(target=hl7_maliciousServer.startServer, args=(port, message, start))
+        threadObject.start()
+        print("Last view call")
+
+        with open(consoleOuputFileName, 'r') as hl7MessageSenderFile:
+            data = hl7MessageSenderFile.read()
+        log_text = data
+        return render(request, "maliciousServer.html", context={'text': log_text})
+    else:
+        return render(request, "maliciousServer.html", context={'text': 'Ready to test!'})

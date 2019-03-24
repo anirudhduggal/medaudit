@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Analyze Network Traffic for HL7 traces</title>
+    <title>Start a fake HL7 Server</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Home</a>
@@ -24,7 +25,7 @@
               <a class="dropdown-item" href="/hl7/analyzeTraffic">Traffic Analysis</a>
               <a class="dropdown-item" href="/hl7/exhaustHl7Ports">DOS test</a>
                 <a class="dropdown-item" href="/hl7/fuzzer">Fuzzer</a>
-                <a class="dropdown-item" href="/hl7/MaliciousServer">Malicious Server</a>
+                <a class="dropdown-item" href="/hl7/maliciousServerTest">Malicious Server</a>
             </div>
           </li>
             <li class="nav-item">
@@ -34,19 +35,34 @@
       </div>
     </nav>
 </div>
-<div class="container">
- <h2>Upload network capture file</h2>
-</div>
-<div class="container">
- <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="networkFile">
-    <button type="submit">Upload</button>
-  </form>
 
-  {% if uploaded_file_url %}
-    <p>Processed HL7 file at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-  {% endif %}
+<div class="container">
+  <h2>Start a fake HL7 Server</h2>
+  <form method="post" action="" id="sendMessageForm">
+      <div class="form-group">
+          <div class="row">
+              <div class="col">
+                <label for="port">Port</label>
+                <input type="text" class="form-control" id="port" name="port_txt" placeholder="Enter Port">
+              </div>
+          </div>
+      </div>
+
+    <div class="container">
+        <label for="message_send_txt">Enter Message to send when a client connects to the Server</label>
+        <textarea class="form-control" rows="10" id="message_send_txt" name="message_send_txt" form="sendMessageForm"></textarea>
+    </div>
+      <div class="form-group">
+        <div class="row">
+
+          <div class="col centered">
+              <br/>
+             <button type="submit" class="btn btn-primary" value="1" name="start_txt">Start</button>
+              <button type="submit" class="btn btn-primary" value="0" name="start_txt">Stop</button>
+          </div>
+        </div>
+      </div>
+    </form>
 </div>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
