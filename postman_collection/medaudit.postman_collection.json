@@ -95,10 +95,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"8806\",\n\t\"start\":0\n\t\n}"
+							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"start\":0\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/hl7dos",
+							"raw": "http://127.0.0.1:8082/api/hl7/dos",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -106,10 +106,47 @@
 								"0",
 								"1"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"api",
-								"hl7dos"
+								"hl7",
+								"dos"
+							]
+						},
+						"description": "Test the port for logical DOS attack"
+					},
+					"response": []
+				},
+				{
+					"name": "Malicious Server Start",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"port\":\"7777\",\n\t\"message\":\"Testing here\",\n\t\"start\":0\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8082/api/hl7/maliciousServerTest",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"hl7",
+								"maliciousServerTest"
 							]
 						},
 						"description": "Test the port for logical DOS attack"
