@@ -12,6 +12,7 @@ Here are the features of the tool:
 * DOS Testing
 * Traffic Analysis 
 * API Support for using Proxies (Burp, ZAP) and REST client (e.g. Postman)
+* Fuzzer (ready for integration, running final tests)
 
 To understand Pen testing medical devices, these talks will help -
 <a href="https://www.youtube.com/watch?v=MR7cH44fjrc"> Blackhat Talk</a>
@@ -19,8 +20,7 @@ To understand Pen testing medical devices, these talks will help -
 <a href="https://www.youtube.com/watch?v=BftxP_odT54"> Nullcon Talk</a>
 
 <img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/TrafficAnalysis.PNG"></img>
-* Fuzzer (in progress)
-* API support for sending HL7 Message 
+<i>A Screenshot of network analysis, the tool extracts HL7 traffic from a network capture file and point the message flow</i>
 
 **Installation**
 The project runs on python 3 and uses Django, Bootstrap 2.
