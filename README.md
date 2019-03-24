@@ -1,5 +1,7 @@
-# medaudit
-A tool for auditing medical devices and healthcare infrastructure. 
+# Medaudit
+A tool for auditing medical devices and healthcare infrastructure. I wrote this tool becuase I could not find any tool that would help me assist in medical device auditing / pentesting. 
+
+I also added the support for web API so we can use the skill set of web application testing to test medical devices. 
 
 The tool is written to audit networks, protocols and infrastructure that runs in hospitals. At the time of writing this, the tools supports HL7 protocol. 
 The tool will support FHIR auditing in the near future. 
@@ -9,6 +11,11 @@ Here are the features of the tool:
 * HL7 Scanner
 * DOS Testing
 * Traffic Analysis 
+
+To understand Pen testing medical devices, these talks will help -
+<a href="https://www.youtube.com/watch?v=MR7cH44fjrc"> Blackhat Talk</a>
+<a href="https://www.youtube.com/watch?v=3S6RQo-OQ24"> HITB Talk</a>
+<a href="https://www.youtube.com/watch?v=BftxP_odT54"> Nullcon Talk</a>
 
 <img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/TrafficAnalysis.PNG"></img>
 * Fuzzer (in progress)
