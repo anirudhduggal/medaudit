@@ -3,6 +3,7 @@ from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_networkAnalyzer,
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
+from multiprocessing import Process
 
 # Create your views here.
 @csrf_exempt
@@ -79,16 +80,17 @@ def exhaustHl7Ports_view(request):
     if request.method == 'POST':
         ipAddress = request.POST.get("ipAddress_txt")
         port = request.POST.get("port_txt")
+        start = request.POST.get("start_txt")
 
         print("Input Received:")
         print(str(ipAddress))
         print(str(port))
+        print(str(start))
 
-        obj = hl7_exhaust.exhaust()
-        for i in range(1, 999999):
-            obj.startDOS(ipAddress,port)
+        threadObject = Process(target=hl7_exhaust.startDOS, args=(ipAddress, port, start))
+        threadObject.start()
 
-        with open('hl7_exhaust.log', 'r') as hl7exhaustFile:
+        with open('hl7/networkFiles/hl7_exhaust.log', 'r') as hl7exhaustFile:
             data = hl7exhaustFile.read()
         log_text = data
         return render(request, "exhaustHl7Ports.html", context={'text': log_text})
