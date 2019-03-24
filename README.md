@@ -30,7 +30,9 @@ For using the tool, install python 3 first and then install pip.
 Download the project/ unzip it. 
 
 cd src/
+
 pip install –r requirements.txt
+
 python manage.py runserver 8082
 
 Open your browser and navigate to 
