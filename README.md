@@ -40,4 +40,6 @@ http://127.0.0.1:8082/about/
 You should see the GUI now. 
 
 <img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/overview.PNG"></img>
+<i>A Screenshot of the interface</i>
+
 
