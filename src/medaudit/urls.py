@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hl7.views import sendMessage_view, scanHl7Ports_view,analyzeTraffic_view, exhaustHl7Ports_view, about_view, fuzzer_view
-from api.views import test_view, api_hl7_sendMessage_view, api_hl7_hostScan_view, api_hl7_dosTest_view
+from api.views import test_view, api_hl7_sendMessage_view, api_hl7_hostScan_view, api_hl7_dosTest_view, api_hl7_maliciousServer_view
 
 urlpatterns = [
     path('hl7/sendMessage', sendMessage_view, name='Send HL7 Message'),
@@ -31,6 +31,7 @@ urlpatterns = [
     path('api/hl7/sendMessage', api_hl7_sendMessage_view, name='Send HL7 Message'),
     path('api/hl7/hostScan', api_hl7_hostScan_view, name='Scan a host'),
     path('api/hl7/dos', api_hl7_dosTest_view, name='Try a DOS test'),
+    path('api/hl7/maliciousServerTest', api_hl7_maliciousServer_view, name='Start a malicious server'),
 
 ]
 handler404 = 'hl7.views.view_404'

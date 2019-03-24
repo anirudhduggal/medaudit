@@ -10,8 +10,7 @@
 #obj.startServer(10023,"A"*500)
 
 
-from hl7_exhaust import *
+from hl7_maliciousServer import startServer
 
-for i in range(1, 999999):
-    obj = exhaust()
-    obj.port("167.81.222.175",1234)
+startServer(8888,"Server test",1)
+
