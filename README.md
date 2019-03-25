@@ -44,4 +44,10 @@ You should see the GUI now.
 <img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/overview.PNG"></img>
 <i>A Screenshot of the interface</i>
 
+<b>Using Postman</b>
+
+Postman is a client tool which can be used to send REST API requests. To use postman, install the software - https://www.getpostman.com/ . Then import the JSON collections in the Postman tool. You can then modify the parameters in a JSON format and send it forward to the device you are testing. Some of the features in the API are not available yet. 
+
+<img ser="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/postman.PNG"></img>
+
 
