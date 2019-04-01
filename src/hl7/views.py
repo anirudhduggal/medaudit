@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_networkAnalyzer, hl7_exhaust, hl7_maliciousServer
+from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_networkAnalyzer, hl7_exhaust, hl7_maliciousServer, hl7_fuzzer
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
@@ -107,20 +107,20 @@ def fuzzer_view(request):
     if request.method == 'POST':
         ipAddress = request.POST.get("ipAddress_txt")
         port = request.POST.get("port_txt")
-
+        fuzz_level = request.POST.get("fuzz_level_txt")
         message = request.POST.get("message_send_txt")
+
         consoleOuputFileName = "hl7/networkFiles/hl7_messageSender.log"
+
         print("Input Received:")
         print(str(ipAddress))
         print(str(port))
         print(str(message))
+        print (str(fuzz_level))
 
-        obj = hl7_messageSender.Hl7Message()
-        obj.send(ipAddress, port, message, consoleOuputFileName)
+        hl7_fuzzer.start_fuzzing(message,ipAddress,port,fuzz_level)
 
-        with open('hl7_messageSender.log', 'r') as hl7MessageSenderFile:
-            data = hl7MessageSenderFile.read()
-        log_text = data
+        log_text = "check terminal for fuzzer progress"
         return render(request, "fuzzer.html", context={'text': log_text})
     else:
         return render(request, "fuzzer.html", context={'text': 'Ready to test!'})

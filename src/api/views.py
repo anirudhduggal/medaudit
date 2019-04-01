@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_maliciousServer, hl7_exhaust
+from .hl7Scripts import hl7_portScanner, hl7_messageSender, hl7_maliciousServer, hl7_exhaust, hl7_fuzzer
 
 from multiprocessing import Process
 
@@ -162,6 +162,39 @@ def api_hl7_maliciousServer_view(request,format=None):
             threadObject.start()
             print("Last view call")
             return Response("Attack started")
+
+            # return Response("Post is working")
+        except Exception as e:
+            return Response("Exception here: " + str(e))
+
+@api_view(['GET', 'POST'])
+@csrf_exempt
+def api_hl7_fuzzer_view(request,format=None):
+
+    if request.method == 'GET':
+        return Response("API loaded")
+
+    elif request.method == 'POST':
+        try:
+
+            data = json.loads(request.body)
+            port = data["port"]
+            message = data["message"]
+            fuzzLevel = data["fuzzLevel"]
+            IPAddress = data["IPAddress"]
+            start = data["start"]
+
+            print("User Input ")
+            print(port)
+            print(message)
+            print(fuzzLevel)
+            print(IPAddress)
+            print(start)
+
+            #create a thread for running a DOS attack
+
+            print("Last view call")
+            return Response("Fuzz started")
 
             # return Response("Post is working")
         except Exception as e:

@@ -2,7 +2,7 @@ import socket
 import logging
 import string,random
 
-consoleOuputFileName = "../networkFiles/hl7_fuzzer.log"
+consoleOuputFileName = "hl7_fuzzer.log"
 
 def send(host, port, message, timeout):
     # timeout for the reply, if the reply is not received in timeout parameter, close connection
@@ -47,22 +47,9 @@ def send(host, port, message, timeout):
     except socket.error as e:
         logging.debug("Exception: " + str(e))
         return e
-
-def start_fuzzing(message, ip_address, port, mode):
-    print("Fuzzing started")
-    for i in range(0, 1024):
-        new_message = new_locate_replace(message, mode, i)
-        try:
-            response = send(ip_address, port, new_message, 5)
-            print("Response received for request " + str(i) + " \n" + response)
-        except Exception as e:
-            print("Possible crash at message: ", new_message , "\n Error: " + str(e) )
-    print("Fuzzing complete")
-
-
-
 def new_locate_replace(message,mode, count):
     final_str = ""
+    replace=""
     str = message.split("|")
     for i in range(len(str)):
         if "<%FUZZ%>" in str[i]:
@@ -92,6 +79,21 @@ def new_locate_replace(message,mode, count):
     #print("First string" + message)
     #print("Final string is " + final_str)
     return final_str
+
+def start_fuzzing(message, ip_address, port, mode):
+    print("Fuzzing started")
+    for i in range(0, 1024):
+        new_message = new_locate_replace(message, mode, i)
+        try:
+            response = send(ip_address, port, new_message, 5)
+            print("Response received for request " + str(i) + " \n" + response)
+        except Exception as e:
+            print("Possible crash at message: ", new_message , "\n Error: " + str(e) )
+    print("Fuzzing complete")
+
+
+
+
 
 
 
