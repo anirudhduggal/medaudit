@@ -46,7 +46,7 @@ You should see the GUI now.
 
 <b>Using Postman</b>
 
-Postman is a client tool which can be used to send REST API requests. To use postman, install the software - https://www.getpostman.com/ . Then import the JSON collections in the Postman tool. You can then modify the parameters in a JSON format and send it forward to the device you are testing. Some of the features in the API are not available yet. 
+Postman is a client tool which can be used to send REST API requests. To use postman, install the software - https://www.getpostman.com/ . Then import the JSON collections in the Postman tool. You can then modify the parameters in a JSON format and send it forward to the device you are testing. 
 
 <img src="https://github.com/anirudhduggal/medaudit/blob/master/screenshots/postman.PNG"></img>
 
