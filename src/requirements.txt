@@ -1,8 +1,4 @@
 Django==2.0.7
 networkx==2.2
 scapy==2.4.2
-<<<<<<< HEAD
 djangorestframework==3.9.2
-=======
-djangorestframework==3.9.2
->>>>>>> 447648e6080c20338211c3453fccc7baa7b34dd4
