@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "hl7",
+			"name": "api",
 			"item": [
 				{
 					"name": "sendMessage",
@@ -118,7 +118,7 @@
 					"response": []
 				},
 				{
-					"name": "Malicious Server Start",
+					"name": "Malicious Server",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -152,9 +152,67 @@
 						"description": "Test the port for logical DOS attack"
 					},
 					"response": []
+				},
+				{
+					"name": "Fuzzer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"IPAddress\":\"167.81.222.175\",\n\t\"port\":\"1235\",\n\t\"message\":\"MSH | ^ ~\\\\ & | MegaReg | <%FUZZ%> | SuperOE | <%FUZZ%> | 20060529090131 - 0500 | | ADT ^ A01 ^ ADT_A01 | 01052 901 | P | 2.5 EVN | | 200605290901 | | | | 20060529090\",\n\t\"fuzzLevel\":\"1\",\n\t\"start\":1\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8082/api/hl7/fuzzer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"hl7",
+								"fuzzer"
+							]
+						},
+						"description": "HL7 Fuzzer, replace the part of the hl7 field with <%FUZZ%> to start fuzzing the field. The fuzz levels start with 1 and go till 3. "
+					},
+					"response": []
 				}
 			],
-			"description": "A collection for HL7 requests"
+			"description": "A collection for HL7 API requests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bf0932c7-47ce-49a2-a992-5d8898b40739",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "913bd816-b69d-4624-ad98-146d3bf1d49f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	]
 }
