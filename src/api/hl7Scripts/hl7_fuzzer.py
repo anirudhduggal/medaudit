@@ -53,11 +53,11 @@ def new_locate_replace(message,mode, count):
     str = message.split("|")
     for i in range(len(str)):
         if "<%FUZZ%>" in str[i]:
-            if(mode == 1):
+            if(mode == "1"):
                 replace = "A" * count
-            if(mode == 2):
+            if(mode == "2"):
                 replace = random.choice(string.ascii_letters) * count
-            if(mode == 3):
+            if(mode == "3"):
                 pattern = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 pattern_special = "!@#$%^&*"
                 first = random.choice(pattern) * count
@@ -90,9 +90,3 @@ def start_fuzzing(message, ip_address, port, mode):
         except Exception as e:
             print("Possible crash at message: ", new_message , "\n Error: " + str(e) )
     print("Fuzzing complete")
-
-
-
-
-
-
