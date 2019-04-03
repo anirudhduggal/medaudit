@@ -90,17 +90,3 @@ def start_fuzzing(message, ip_address, port, mode):
         except Exception as e:
             print("Possible crash at message: ", new_message , "\n Error: " + str(e) )
     print("Fuzzing complete")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
