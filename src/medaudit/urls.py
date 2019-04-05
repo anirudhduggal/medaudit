@@ -36,5 +36,4 @@ urlpatterns = [
     path('api/hl7/fuzzer', api_hl7_fuzzer_view, name='Start fuzzing the HL7 Message'),
 
 ]
-handler404 = 'hl7.views.view_404'
 
