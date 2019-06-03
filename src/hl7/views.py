@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from multiprocessing import Process
 
-from src.medaudit.settings import BASE_DIR
+from medaudit.settings import BASE_DIR
 
 # Create your views here.
 def about_view(request):

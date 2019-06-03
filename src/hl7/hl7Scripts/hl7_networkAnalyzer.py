@@ -1,7 +1,7 @@
 import networkx as nx
 from scapy.all import *
 from scapy.utils import PcapWriter
-from src.medaudit.settings import BASE_DIR
+from medaudit.settings import BASE_DIR
 from urllib.parse import unquote
 
 class hl7Traffic:
