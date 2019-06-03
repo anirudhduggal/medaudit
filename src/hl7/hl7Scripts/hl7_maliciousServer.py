@@ -1,10 +1,8 @@
 import socket
 
-def Server(port,message):
-
+def Server(port,message,maliciousServerTrackingFileLocation):
     while(True):
-
-        maliciousServerTrackingFile = open('hl7/networkFiles/maliciousServerTrackingFile.txt', 'r')
+        maliciousServerTrackingFile = open(maliciousServerTrackingFileLocation, 'r')
         state = maliciousServerTrackingFile.read()
         maliciousServerTrackingFile.close()
         print("the state is "+str(state))
@@ -36,19 +34,21 @@ def Server(port,message):
         except Exception as e :
             print("  "+str(e))
 
-def startServer(port, message,start):
+def startServer(port, message,start,maliciousServerTrackingFileLocation):
     print("in malicious server")
     print(str(port) + " " + str(message) + " ")
     if int(start) == 1:
         # open file to keep track of DOS attack
-        maliciousServerTrackingFile = open('hl7/networkFiles/maliciousServerTrackingFile.txt', 'w+')
+        maliciousServerTrackingFile = open(maliciousServerTrackingFileLocation, 'w+')
         maliciousServerTrackingFile.write("1")
         maliciousServerTrackingFile.close()
-        Server(port, message)
+        print("server started")
+        Server(port, message,maliciousServerTrackingFileLocation)
 
     elif int(start) == 0:
-        maliciousServerTrackingFile = open('hl7/networkFiles/maliciousServerTrackingFile.txt', 'w+')
+        maliciousServerTrackingFile = open(maliciousServerTrackingFileLocation, 'w+')
         maliciousServerTrackingFile.write("0")
         maliciousServerTrackingFile.close()
-        Server(port, message)
+        print("server stopped")
+        Server(port, message,maliciousServerTrackingFileLocation)
 

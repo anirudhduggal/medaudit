@@ -1,0 +1,38 @@
+{% include "../header.html" %}
+
+<div class="container">
+  <h2>Scanner!</h2>
+  <form method="post" action="">
+      <div class="form-group">
+          <div class="row">
+              <div class="col">
+                <label for="ipAddress">IP Address</label>
+                <input type="text" class="form-control" id="ipAddress" name="ipAddress_txt" placeholder="Enter IP address">
+              </div>
+              <div class="col">
+                <label for="port">Port</label>
+                <input type="text" class="form-control" id="port" name="port_txt" placeholder="Enter Port, leave blank to scan all ports">
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="timeout_txt">Timeout</label>
+            <input type="text" class="form-control" id="timeout_txt" name="timeout_txt" placeholder="Enter a timeout for request, leave blank for 2 seconds">
+          </div>
+          <div class="col centered">
+              <br/>
+             <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Clear</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="container">
+        <label for="console_update_txt">Console Output</label>
+        <textarea class="form-control" rows="20" id="console_update_txt" name="console_update_txt">{{ text }}</textarea>
+    </div>
+</div>
+
+{% include "../footer.html" %}

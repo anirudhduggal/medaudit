@@ -1,9 +1,4 @@
 import socket
-import logging
-
-consoleOuputFileName = "hl7/networkFiles/hl7_exhaust.log"
-logging.basicConfig(filename=consoleOuputFileName,level=logging.DEBUG,filemode='w')
-
 
 def DOS(host,port):
     message="MSH"
@@ -33,17 +28,16 @@ def DOS(host,port):
 
                 try:
                     ack = conn.recv(4096)
-                    logging.debug(ack)
                     if ack:
                         writeAck = ack.decode()
-                        logging.debug("Alive! "+writeAck)
+                        print("Alive! "+writeAck)
                     else:
-                        logging.debug("Exhausted all connections")
+                        print("Exhausted all connections")
                 except socket.timeout as e:
                     return e
 
             except socket.error as e:
-                logging.debug("Exhausted all connections"+ str(e))
+                print("Exhausted all connections"+ str(e))
         elif int(state) == 0:
             break
 
@@ -56,7 +50,7 @@ def startDOS(host,port,start):
         dosTrackingFile.close()
         DOS(host, port)
 
-    elif start == 0:
+    elif int(start) == 0:
         print("Stopping DOS")
         dosTrackingFile = open('hl7/networkFiles/dosTrackingFile.txt', 'w')
         dosTrackingFile.write("0")

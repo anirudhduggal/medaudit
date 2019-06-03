@@ -1,14 +1,19 @@
 import networkx as nx
 from scapy.all import *
 from scapy.utils import PcapWriter
+from src.medaudit.settings import BASE_DIR
+from urllib.parse import unquote
 
 class hl7Traffic:
 
-    def analyze(self,pcapFilename=""):
-        hl7Output = "hl7PacketDump.pcap"
-        hl7Dump = PcapWriter(("hl7/networkFiles/"+hl7Output),append=True,sync=True)
+    def analyze(self,pcapFilename):
+        hl7Output =BASE_DIR+"/hl7/networkFiles/hl7PacketDump.pcap"
+        hl7Dump = PcapWriter((hl7Output),append=True,sync=True)
 
         G = nx.DiGraph(directed=True)
+
+        print(unquote(pcapFilename))
+        pcapFilename = unquote(pcapFilename)
 
         packets = rdpcap(pcapFilename)
         networkSession = packets.sessions()

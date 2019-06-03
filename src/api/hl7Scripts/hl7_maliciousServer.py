@@ -1,7 +1,6 @@
 import socket
 
 def Server(port,message):
-
     while(True):
 
         maliciousServerTrackingFile = open('api/networkFiles/maliciousServerTrackingFile.txt', 'r')

