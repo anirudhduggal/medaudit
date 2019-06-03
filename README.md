@@ -1,4 +1,4 @@
-# MedAudit- 1.0
+# MedAudit - 1.0
 A tool for auditing medical devices and healthcare infrastructure. I wrote this tool becuase I could not find any tool that would help me assist in medical device auditing / pentesting. 
 
 I also added the support for web API so we can use the skill set of web application testing to test medical devices. 
