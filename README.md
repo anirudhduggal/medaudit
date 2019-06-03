@@ -12,7 +12,7 @@ Here are the features of the tool:
 * DOS Testing
 * Traffic Analysis 
 * API Support for using Proxies (Burp, ZAP) and REST client (e.g. Postman)
-* Fuzzer (ready for integration, running final tests)
+* Fuzzer - Written by Adwait Joshi (https://github.com/AdvaitJ)
 
 To understand Pen testing medical devices, these talks will help -
 <a href="https://www.youtube.com/watch?v=MR7cH44fjrc"> Blackhat Talk</a>
