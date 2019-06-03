@@ -23,18 +23,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"timeout\":0,\n\t\"message\":\"MSH\"\n}"
+							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"10010\",\n\t\"timeout\":0,\n\t\"message\":\"MSH\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/hl7/sendMessage",
+							"raw": "http://{{localIPAddress}}:{{localPort}}/api/hl7/sendMessage",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{localIPAddress}}"
 							],
-							"port": "8080",
+							"port": "{{localPort}}",
 							"path": [
 								"api",
 								"hl7",
@@ -62,15 +59,12 @@
 							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"timeout\":1,\n\t\"message\":\"\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/hl7/hostScan",
+							"raw": "http://{{localIPAddress}}:{{localPort}}/api/hl7/hostScan",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{localIPAddress}}"
 							],
-							"port": "8080",
+							"port": "{{localPort}}",
 							"path": [
 								"api",
 								"hl7",
@@ -98,15 +92,12 @@
 							"raw": "{\n\t\"ipAddress\":\"127.0.0.1\",\n\t\"port\":\"9999\",\n\t\"start\":0\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8082/api/hl7/dos",
+							"raw": "http://{{localIPAddress}}:{{localPort}}/api/hl7/dos",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{localIPAddress}}"
 							],
-							"port": "8082",
+							"port": "{{localPort}}",
 							"path": [
 								"api",
 								"hl7",
@@ -134,15 +125,12 @@
 							"raw": "{\n\t\"port\":\"7777\",\n\t\"message\":\"Testing here\",\n\t\"start\":0\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8082/api/hl7/maliciousServerTest",
+							"raw": "http://{{localIPAddress}}:{{localPort}}/api/hl7/maliciousServerTest",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{localIPAddress}}"
 							],
-							"port": "8082",
+							"port": "{{localPort}}",
 							"path": [
 								"api",
 								"hl7",
@@ -170,15 +158,12 @@
 							"raw": "{\n\t\"IPAddress\":\"167.81.222.175\",\n\t\"port\":\"1235\",\n\t\"message\":\"MSH | ^ ~\\\\ & | MegaReg | <%FUZZ%> | SuperOE | <%FUZZ%> | 20060529090131 - 0500 | | ADT ^ A01 ^ ADT_A01 | 01052 901 | P | 2.5 EVN | | 200605290901 | | | | 20060529090\",\n\t\"fuzzLevel\":\"1\",\n\t\"start\":1\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8082/api/hl7/fuzzer",
+							"raw": "http://{{localIPAddress}}:{{localPort}}/api/hl7/fuzzer",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{localIPAddress}}"
 							],
-							"port": "8082",
+							"port": "{{localPort}}",
 							"path": [
 								"api",
 								"hl7",
