@@ -6,7 +6,7 @@ decorator==4.3.2
 Django==2.2
 django-bootstrap-ui==0.5.1
 django-tag-parser==2.1
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 docutils==0.14
 dominate==2.1.17
 gitdb2==2.0.5
