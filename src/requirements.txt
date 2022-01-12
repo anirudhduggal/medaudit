@@ -28,7 +28,7 @@ numpy==1.16.1
 parso==0.3.3
 pathtools==0.1.2
 pillow==5.4.1
-pipenv==2018.11.26
+pipenv==2022.1.8
 py==1.7.0
 Pygments==2.3.1
 pyparsing==2.3.1
