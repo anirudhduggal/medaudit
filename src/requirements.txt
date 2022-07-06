@@ -21,7 +21,7 @@ kivy.deps.glew==0.1.10
 kivy.deps.sdl2==0.1.18
 kiwisolver==1.0.1
 Logbook==1.4.3
-lxml==4.3.0
+lxml==4.9.1
 matplotlib==3.0.2
 networkx==2.2
 numpy==1.16.1
