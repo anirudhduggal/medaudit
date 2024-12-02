@@ -14,7 +14,7 @@ GitPython==2.1.11
 idna==2.8
 jedi==0.13.2
 Logbook==1.4.3
-lxml==4.3.0
+lxml==4.9.1
 matplotlib==3.0.2
 networkx==2.2
 numpy==1.16.1
