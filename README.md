@@ -1,3 +1,15 @@
+# MedAudit 1.0 is officially archived.
+
+Thank You for Your Support
+I want to express my deepest gratitude for your continuous support, feedback, and contributions throughout the lifetime of the MedAudit project. 
+
+What’s Next: Next-Gen AI Integration
+While the original MedAudit repository is now read-only, a new project, medaudit2 will replace Medaudit. 
+
+Enhanced Capabilities: The new platform will integrate machine learning and AI-driven workflows to deliver smarter, faster, and more automated audit insights.
+Ongoing Support: Dedicated support, active maintenance, and feature updates will fully migrate to the new AI-focused repository.
+
+
 # MedAudit - 1.0
 A tool for auditing medical devices and healthcare infrastructure. I wrote this tool becuase I could not find any tool that would help me assist in medical device auditing / pentesting. 
 
