@@ -23,7 +23,7 @@ pathtools==0.1.2
 pillow==5.4.1
 pipenv==2018.11.26
 py==1.7.0
-Pygments==2.3.1
+Pygments==2.7.4
 pyparsing==2.3.1
 pypiwin32==223
 pyshark==0.4.2.2
